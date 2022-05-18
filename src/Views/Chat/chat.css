@@ -1,0 +1,51 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+.chat{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 960px;
+    height: 640px;
+    border-radius: 10px;
+    background-color: #dcdcdc;
+    /* 盒子阴影 */
+    box-shadow: 15px 15px 10px rgba(33,45,58,0.3);
+    overflow: hidden;
+    position:relative;
+}
+
+.list{
+    flex: 3;
+    border: 3px #4471a3 solid;
+    width: 470px;
+}
+.left{
+    border: 1px solid red;
+    width: 60px;
+    height: 640px;
+    float: left;
+}
+
+.right{
+    border: 1px solid powderblue;
+    width: 310px;
+    height: 640px;
+}
+
+.chat_body{
+    border: 1px solid black;
+    width: 660px;
+    height: 640px;
+}
+.top{
+    border: 1px solid black;
+    height: 480px;
+}
+
+.footer{
+    border: 1px solid black;
+    height: 160px;
+}
