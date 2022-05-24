@@ -55,7 +55,11 @@ class Register extends Component {
                         />
                         <input
                             type="submit" className="login-btn" value="登陆"
+<<<<<<< HEAD
                             onClick={this.toChat}
+=======
+                            onClick={this.login}
+>>>>>>> origin/master
                         />
                         <input
                             type="submit" className="login-btn" value="已有账户"
