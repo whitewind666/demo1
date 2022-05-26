@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal" created-in="DB-221.5591.57">
+    <data-source name="test@localhost" uuid="bcdae901-3a16-4548-b128-84d1d987c13a">
+      <database-info product="Mongo DB" version="5.0.8" jdbc-version="4.2" driver-name="MongoDB JDBC Driver" driver-version="1.14" dbms="MONGO" exact-version="5.0.8" exact-driver-version="1.14" />
+      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
+      <secret-storage>master_key</secret-storage>
+      <auth-provider>no-auth</auth-provider>
+      <schema-mapping>
+        <introspection-scope>
+          <node kind="schema" negative="1" />
+        </introspection-scope>
+      </schema-mapping>
+    </data-source>
+    <data-source name="chat@localhost" uuid="cd6d50b3-63f2-472b-9895-401624c1c679">
+      <database-info product="Mongo DB" version="5.0.8" jdbc-version="4.2" driver-name="MongoDB JDBC Driver" driver-version="1.14" dbms="MONGO" exact-version="5.0.8" exact-driver-version="1.14" />
+      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
+      <secret-storage>master_key</secret-storage>
+      <schema-mapping>
+        <introspection-scope>
+          <node kind="schema" qname="chat" />
+        </introspection-scope>
+      </schema-mapping>
+    </data-source>
+  </component>
+</project>

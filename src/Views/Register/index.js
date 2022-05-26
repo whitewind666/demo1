@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux'
+
 
 import './style.css'
 
@@ -18,9 +20,9 @@ class Register extends Component {
 
     toChat = () => {
         console.log(this.state)
-        window.location.href ='../Chat'
-        alert(`登陆成功！`)
+        window.location.href = '../Chat'
     }
+
     toLogin = () => {
         alert('返回Login')
         /*this.props.history.replace('/Login')*/
@@ -55,11 +57,7 @@ class Register extends Component {
                         />
                         <input
                             type="submit" className="login-btn" value="登陆"
-<<<<<<< HEAD
                             onClick={this.toChat}
-=======
-                            onClick={this.login}
->>>>>>> origin/master
                         />
                         <input
                             type="submit" className="login-btn" value="已有账户"
@@ -75,5 +73,5 @@ class Register extends Component {
 
 
 
-export default Register;
+export default connect()(Register)
 
