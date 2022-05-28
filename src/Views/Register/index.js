@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
-
+import {register} from "../redux/action";
 
 import './style.css'
 
@@ -18,11 +18,6 @@ class Register extends Component {
         this.props.register(this.state)
     }
 
-    toChat = () => {
-        console.log(this.state)
-        window.location.href = '../Chat'
-    }
-
     toLogin = () => {
         alert('返回Login')
         /*this.props.history.replace('/Login')*/
@@ -37,9 +32,10 @@ class Register extends Component {
     }
 
     render() {
-
+        const {msg}=this.props.user
         return (
             <div className="Login_content">
+                {msg ? <div className='error-msg'>{msg}</div> : null}
                 <div className="container">
                     <h1>OurTalk</h1>
                     <div className="form">
@@ -57,7 +53,7 @@ class Register extends Component {
                         />
                         <input
                             type="submit" className="login-btn" value="登陆"
-                            onClick={this.toChat}
+                            onClick={this.register}
                         />
                         <input
                             type="submit" className="login-btn" value="已有账户"
@@ -73,5 +69,8 @@ class Register extends Component {
 
 
 
-export default connect()(Register)
+export default connect(
+    state =>({user: state.user}),
+    {register}
+)(Register)
 

@@ -9,9 +9,17 @@ const errorMsg = (msg) => ({type: ERR_MSG, data: msg})
 //注册异步action
 export const register = (user) => {
 
+    const {username,password,password2} = user
+    if(!username){
+        return errorMsg('请输入用户名')
+    }else if(password!==password2){
+        //表单前台验证，返回一个同步action
+        return errorMsg('两次密码不相同')
+    }
+
     return async dispatch => {
         //  发送注册的异步ajax请求
-        const response = await reqRegister(user)
+        const response = await reqRegister(username,password,password2)
         const result = response.data
         if (result.code === 0) {
             //分发授权成功的action
@@ -26,6 +34,14 @@ export const register = (user) => {
 
 //登陆异步action
 export const login = (user) => {
+
+    const {username,password} = user
+    if(!username){
+        return errorMsg('请输入用户名')
+    }else if(!password){
+        //表单前台验证，返回一个同步action
+        return errorMsg('请输入密码')
+    }
 
     return async dispatch => {
         //  发送注册的异步ajax请求
