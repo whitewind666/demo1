@@ -35,9 +35,9 @@ class Register extends Component {
         const {msg}=this.props.user
         return (
             <div className="Login_content">
-                {msg ? <div className='error-msg'>{msg}</div> : null}
                 <div className="container">
                     <h1>OurTalk</h1>
+                    {msg ? <div className='error-msg'>{msg}</div> : null} {/*提示密码错误*/}
                     <div className="form">
                         <input
                             type="text" className="login-tbx" placeholder="账号"

@@ -19,7 +19,7 @@ export const register = (user) => {
 
     return async dispatch => {
         //  发送注册的异步ajax请求
-        const response = await reqRegister(username,password,password2)
+        const response = await reqRegister(user)
         const result = response.data
         if (result.code === 0) {
             //分发授权成功的action

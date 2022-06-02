@@ -10,9 +10,13 @@ mongoose.connect('mongodb://localhost:27017/chat')
 //1.3. 获取连接对象
 const conn = mongoose.connection
 //1.4. 绑定连接完成的监听(用来提示连接成功)
-conn.on('connection', () => {
-    console.log('绑定链接成功')
-})
+conn.on('connected',function(err){
+    if(err){
+        console.log('连接数据库失败：'+err);
+    }else{
+        console.log('连接数据库成功！');
+    }
+});
 
 /*2. 得到对应特定集合的 Model*/
 //2.1. 字义 Schema(描述文档结构)
