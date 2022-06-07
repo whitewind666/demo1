@@ -28,6 +28,7 @@ class Login extends Component {
     toRegister = () => {
         alert(`注册页面`)
         window.location.href ='../Register'
+        this.props.history.replace('/Register')
     }
 
     //处理输入数据的改变

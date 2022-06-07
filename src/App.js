@@ -1,6 +1,8 @@
 import React from "react";
 import {Navigate, Route, Routes} from "react-router-dom";
 
+import './api/assets/css/index.less'
+
 import Login from "./Views/Login";
 import Chat from "./Views/Chat/demo.js";
 import Register from './Views/Register'

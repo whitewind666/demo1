@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import {register} from "../redux/action";
+import {Navigate} from "react-router";
 
 import './style.css'
 
@@ -28,11 +29,14 @@ class Register extends Component {
         this.setState({
             [name] : val.target.value
         })
-        //console.log(val)
+        //console.log(val.target.value)
     }
 
     render() {
-        const {msg}=this.props.user
+        const {msg,navigateTo}=this.props.user
+        if (navigateTo){
+            return <Navigate to='navigateTo'/>
+        }
         return (
             <div className="Login_content">
                 <div className="container">
@@ -52,7 +56,7 @@ class Register extends Component {
                             onChange={val =>{this.handleChange('password2',val)}}
                         />
                         <input
-                            type="submit" className="login-btn" value="登陆"
+                            type="submit" className="login-btn" value="注册"
                             onClick={this.register}
                         />
                         <input

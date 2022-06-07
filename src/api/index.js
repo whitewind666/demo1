@@ -6,11 +6,11 @@ import ajax from "./ajax";
 
 //注册接口
 export const reqRegister = (user) => {
-  ajax('/Register',user,'POST')
+  return ajax('/Register',user,'POST')
 }
 //登陆借口
 export const reqLogin = ({username, password}) => {
-    ajax('/Login', {username, password},'POST')
+    return  ajax('/Login', {username, password},'POST')
 }
 // 更新用户接口
 export const reqUpdateUser = (user) => ajax('/update', user, 'POST')
