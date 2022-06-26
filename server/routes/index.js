@@ -44,9 +44,9 @@ router.post('/Login',function (req, res){
       // 生成一个cookie(userid: user._id), 并交给浏览器保存
       res.cookie('userid', user._id, {maxAge: 1000 * 60 * 60 * 24})
       //
-      res.send({code: 1, data: user})
+      res.send({code: 0, data: user})
     }else {
-      res.send({code: 0, msg:'密码错误'})
+      res.send({code: 1, msg:'密码错误'})
     }
   })
 })

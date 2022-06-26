@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux'
+import {login} from "../redux/action";
+import {Navigate} from "react-router-dom";
 
 import './style.css'
+
 
 class Login extends Component {
 
@@ -10,25 +14,17 @@ class Login extends Component {
         password:'', //密码
     }
 
-    /*//保存用户名到状态中
-    saveUsername = (event)=>{
-        this.setState({username:event.target.value})
-    }
-
-    //保存密码到状态中
-    savePassword = (event)=>{
-        this.setState({password:event.target.value})
-    }*/
-
-    toChat = () => {
+    login = () => {
         console.log(this.state)
         alert(`登陆成功！`)
+        this.props.login(this.state)
+/*
         window.location.href ='../Chat'
+*/
     }
     toRegister = () => {
         alert(`注册页面`)
         window.location.href ='../Register'
-        this.props.history.replace('/Register')
     }
 
     //处理输入数据的改变
@@ -40,10 +36,18 @@ class Login extends Component {
 
 
     render() {
+
+        const {msg, navigateTo} = this.props.user
+        //判断是否有值，user有值重定向到Chat
+        if (!navigateTo) {
+            return <Navigate to="/Chat"/>
+        }
+
         return (
             <div className="Login_content">
                 <div className="container">
                     <h1>OurTalk</h1>
+                    {msg ? <div className='error-msg'>{msg}</div> : null} {/*提示密码错误*/}
                     <div className="form">
                         <input
                             type="text" className="login-tbx" placeholder="账号"
@@ -54,7 +58,7 @@ class Login extends Component {
                             onChange={val =>{this.handleChange('password',val)}}
                         />
                         <input type="submit" className="login-btn" value="登录"
-                               onClick={this.toChat}
+                               onClick={this.login}
                         />
                         <input type="submit" className="login-btn" value="注册"
                                onClick={this.toRegister}
@@ -68,5 +72,7 @@ class Login extends Component {
 }
 
 
-
-export default Login;
+export default connect(
+    state => ({user: state.user}),
+    {login}
+)(Login)
