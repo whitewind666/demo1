@@ -17,9 +17,9 @@ class Userworld extends Component {
 
     constructor(props) {
         super(props);
-        this.headerList = []
+        this.state.headerList = []
         for (let i = 0; i < 20; i++) {
-            this.headerList.push({
+            this.state.headerList.push({
                 index: i ,
                 text: '头像' + (i + 1),
                 icon: import(`../../assets/images/headers/头像${i + 1}.png`)
@@ -39,7 +39,7 @@ class Userworld extends Component {
     }
 
     render() {
-        const data = this.headerList;
+        const data = this.state.headerList;
         return (
             <div className="user_content">
                 <div className="user_body">
