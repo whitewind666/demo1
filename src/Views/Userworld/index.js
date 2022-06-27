@@ -17,6 +17,24 @@ class Userworld extends Component {
         }
     }
 
+
+    state={
+        header:'',
+        info:'',
+        telephone:'',
+        userweb:'',
+        bbll:''
+    }
+    handelChange =(name,val)=>{
+        this.setState({
+            [name] : val.target.value
+        })
+    }
+
+    save=()=>{
+        console.log(this.state)
+    }
+
     render() {
         const data =this.headerList;
         return (
@@ -51,17 +69,23 @@ class Userworld extends Component {
 
                     {/* input框 */}
                     <div className="user_input"  align="middle" style={{minHeight:'100vh'}}>
-                        <Input.Group compact>
+                        <Input.Group compact
+                                     onChange={val=>{this.handleChange('info',val)}}
+                        >
                             <Input style={{ width: '10%' }} defaultValue="昵称" />
                             <Input style={{ width: '30%' }}  placeholder="请输入昵称" />
                         </Input.Group>
                         <br/>
-                        <Input.Group compact>
+                        <Input.Group compact
+                                     onChange={val=>{this.handleChange('telephone',val)}}
+                        >
                             <Input style={{ width: '10%' }} defaultValue="电话" />
                             <Input style={{ width: '30%' }}  placeholder="请输入电话" />
                         </Input.Group>
                         <br/>
-                        <Input.Group compact>
+                        <Input.Group compact
+                                     onChange={val=>{this.handleChange('userweb',val)}}
+                        >
                             <Input style={{ width: '10%' }} defaultValue="个人网站" />
                             <Input style={{ width: '30%' }}  placeholder="请输入邮箱地址" />
                         </Input.Group>
@@ -76,10 +100,11 @@ class Userworld extends Component {
                             <TextArea rows={4} maxLength={200}
                                       placeholder="简介"
                                       style={{resize: 'none'}}
+                                      onChange={val=>{this.handleChange('bbll',val)}}
                             />
                         </div>
                         <br/>
-                        <Button>确认</Button>----------
+                        <Button onClick={this.save}>保存</Button>----------
                         <Button>取消</Button>
                     </div>
 
