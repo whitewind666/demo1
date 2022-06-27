@@ -1,5 +1,15 @@
 @import '../../../node_modules/antd/dist/antd.css';
 
+/*谷歌去除箭头*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+/*火狐去除箭头*/
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
 .user_content {
     width: 100%;
     height: 100vh;
@@ -27,12 +37,13 @@
     margin-bottom: -5px;
 }
 
-.ant-input{
+.ant-input {
     display: flex;
     width: 40%;
-    min-height:100%;
+    min-height: 100%;
 }
-.user_list{
+
+.user_list {
     width: 80%;
     margin-left: 10%;
     height: 270px;
