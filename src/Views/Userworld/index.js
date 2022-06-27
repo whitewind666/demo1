@@ -1,30 +1,26 @@
 import React, {Component} from 'react';
 import {connect,} from "react-redux";
-import {Button, Card, Input, List,} from 'antd';
+import {Button, Input,} from 'antd';
 
+import HeaderSelector from "../HeaderSelector";
 import './style.css'
 
 const {TextArea} = Input;
 
 class Userworld extends Component {
     state = {
-        header: '',
-        info: '',
-        telephone: '',
-        userweb: '',
-        bbll: ''
+        header: {type: String},
+        info: {type: String},
+        telephone: {type: Number},
+        userweb: {type: String},
+        bbll: {type: String},
     }
 
-    constructor(props) {
-        super(props);
-        this.headerList = []
-        for (let i = 0; i < 20; i++) {
-            this.headerList.push({
-                index: i ,
-                text: '头像' + (i + 1),
-                icon: import(`../../assets/images/headers/头像${i + 1}.png`)
-            })
-        }
+
+    setHeader = (header) => {
+        this.setState({
+            header
+        })
     }
 
 
@@ -36,10 +32,11 @@ class Userworld extends Component {
 
     save = () => {
         console.log(this.state)
+       /* console.log(this.state.headerList[0].text)*/
     }
 
     render() {
-        const data = this.headerList;
+
         return (
             <div className="user_content">
                 <div className="user_body">
@@ -49,29 +46,7 @@ class Userworld extends Component {
                     </div>
 
                     {/* 头像载入 */}
-                    <List
-                        size="small"
-                        className="user_list"
-                        header={<div>选择头像</div>}
-                        grid={{
-                            gutter: 1,
-                            columns: 3,
-                        }}
-                        dataSource={data}
-                        renderItem={(item) => (
-                            <List.Item>
-                                <Card title={item.title}>
-                                    <div>
-                                        {this.state.headerList.map((headerPic, index) => (
-                                            <div key={index}> {headerPic.text}  {headerPic.icon}</div>
-                                        ))}
-
-                                    </div>
-                                </Card>
-                            </List.Item>
-                        )}
-                    >
-                    </List>
+                    <HeaderSelector setHeader={this.setHeader}/>
 
                     {/* input框 */}
                     <div className="user_input" align="middle" style={{minHeight: '100vh'}}>
@@ -109,8 +84,8 @@ class Userworld extends Component {
                         </Input.Group>
                         <br/>
                         <Input.Group compact>
-                            <Input style={{width: '10%'}} defaultValue="0571"/>
-                            <Input style={{width: '30%'}} defaultValue="26888888"/>
+                            <Input style={{width: '10%'}} defaultValue="4330"/>
+                            <Input style={{width: '30%'}} defaultValue="9999"/>
                         </Input.Group>
                         <br/>
                         <div className="introduction">

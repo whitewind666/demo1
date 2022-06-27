@@ -1,0 +1,11 @@
+@import '../../../node_modules/antd/dist/antd.css';
+.user_list {
+    width: 85%;
+    margin-left: 70px;
+    height: 270px;
+}
+.user_head {
+    width: 100%;
+    text-align: center;
+    margin-bottom: -5px;
+}

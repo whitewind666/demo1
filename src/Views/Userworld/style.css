@@ -37,14 +37,11 @@ input[type="number"] {
     margin-bottom: -5px;
 }
 
-.ant-input {
+.introduction {
     display: flex;
     width: 40%;
     min-height: 100%;
 }
 
-.user_list {
-    width: 80%;
-    margin-left: 10%;
-    height: 270px;
-}
+
+
