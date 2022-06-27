@@ -20,6 +20,7 @@ class Userworld extends Component {
         this.headerList = []
         for (let i = 0; i < 20; i++) {
             this.headerList.push({
+                index: i ,
                 text: '头像' + (i + 1),
                 icon: import(`../../assets/images/headers/头像${i + 1}.png`)
             })
@@ -61,8 +62,8 @@ class Userworld extends Component {
                             <List.Item>
                                 <Card title={item.title}>
                                     <div>
-                                        {this.state.headerList.map((headerPic, text) => (
-                                            <div key={text}> {headerPic.text}  {headerPic.icon}</div>
+                                        {this.state.headerList.map((headerPic, index) => (
+                                            <div key={index}> {headerPic.text}  {headerPic.icon}</div>
                                         ))}
 
                                     </div>
